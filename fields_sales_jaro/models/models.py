@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 
-from odoo import models, fields, api
+from odoo import models, fields, api, _
 
-# class fields_sales_jaro(models.Model):
-#     _name = 'fields_sales_jaro.fields_sales_jaro'
+class AddFIeldsSalesJaro(models.Model):
 
-#     name = fields.Char()
-#     value = fields.Integer()
-#     value2 = fields.Float(compute="_value_pc", store=True)
-#     description = fields.Text()
-#
-#     @api.depends('value')
-#     def _value_pc(self):
-#         self.value2 = float(self.value) / 100
+	_inherit = 'sale.order'
+
+	number_order = fields.Char( string = "Numero de orden" )
+	number_appoi = fields.Char( string = "Numero de cita" )
+	date_of_deli = fields.Date( string = "Fecha de entrega" )
