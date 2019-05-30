@@ -7,8 +7,14 @@ class AddFIeldsSalesJaro(models.Model):
 	_inherit = 'sale.order'
 
 	number_order = fields.Char( string = "Numero de orden" )
+
 	number_appoi = fields.Char( string = "Numero de cita" )
+
 	date_of_deli = fields.Date( string = "Fecha de entrega" )
+
+	folio_note_entry = fields.Char( string = "Folio de nota de entrada" )
+
+	field_add_capture = fields.Char( string = "Campo addicional para capturar" )
 
 class AddFieldManySales(models.Model):
 
@@ -21,3 +27,9 @@ class AddFieldManySales(models.Model):
 	def getValue(self):
 		search = self.env['sale.order'].search([('name', '=', self.origin)], limit = 1)
 		self.field_sales = search.id
+
+class AddFIeldsContacts(models.Model):
+
+	_inherit = 'res.partner'
+
+	number_store = fields.Char( string = "Numero de tienda" )
